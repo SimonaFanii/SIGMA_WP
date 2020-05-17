@@ -1,0 +1,88 @@
+.row-second{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    color:white;
+    font-family: 'Questrial', sans-serif;
+    background-color: rgba(26, 26, 54, 0.39);
+    align-content: center;
+    /* font-width: 100; */
+    padding-top: 80px;
+    padding-bottom: 20px;
+    /* margin-top: -71px !important; */
+}
+.info-card{
+    background-image: linear-gradient(#407BFE,#01001F);
+    padding:20px;
+    min-width: 40% !important;
+}
+img{
+    padding:20px;
+}
+.btn-identifikohu{
+    background-color: white;
+    padding: 8px 50px;
+    border: 1px solid #01001F;
+    color:#01001F;
+    border-radius: 25px;
+    margin-bottom:10px;
+}
+.btn-regjitrohu{
+    background-color: transparent;
+    padding: 8px 50px;
+    border: 1px solid white;
+    color:white;
+    border-radius: 25px;
+    margin-bottom:10px;
+}
+.btn-identifikohu:hover{
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    color:#ffffff;
+}
+.btn-regjitrohu:hover{
+    background-color: white;
+    border: 1px solid #01001F;
+    color:#01001F;
+}
+/*Forma*/
+.register-form{
+    background-color: #ffffff;
+    color:#01001F;
+    padding:20px;
+    min-width: 60% !important;
+}
+form{
+    width:80%;
+}
+.input-group-text{
+    background-color: transparent !important;
+    border: 0px !important;
+    padding-left: 0px !important;
+}
+.input-group-text .far, .fas{
+    color: #01001F;
+    width:100%
+}
+.form-control{
+    /*border-bottom: 1px solid #407BFE !important;*/
+    border-top:0px !important;
+    border-left:0px !important;
+    border-right:0px !important;
+    outline:0 !important;
+}
+.form-control:focus{
+    outline:0 !important;
+}
+.btn-register{
+    background-color: #01001F;
+    padding: 8px 70px;
+    border: 1px solid white;
+    color:white;
+    border-radius: 25px;
+    margin: 0 0 10px 10% !important;;
+}
+.btn-register:hover{
+    background-color: #ffffff;
+    border: 1px solid #01001F;
+    color:#01001F;
+}

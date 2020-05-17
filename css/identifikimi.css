@@ -1,0 +1,93 @@
+.row-second{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    color:white;
+    font-family: 'Questrial', sans-serif;
+    background-color: rgba(64, 123, 254, 0.11);
+    align-content: center;
+    font-width: 100;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    /* margin-top: -71px !important; */
+}
+.info-card{
+    background-image: linear-gradient(#407BFE,#0063B4);
+    padding:20px;
+    min-width: 40% !important;
+ }
+img{
+    padding:20px;
+}
+.btn-identifikohu{
+    background-color: white;
+    padding: 8px 50px;
+    border: 1px solid #0063B4;
+    color:#0063B4;
+    border-radius: 25px;
+    margin-bottom:10px;
+}
+.btn-regjitrohu{
+    background-color: transparent;
+    padding: 8px 50px;
+    border: 1px solid white;
+    color:white;
+    border-radius: 25px;
+    margin-bottom:10px;
+}
+.btn-identifikohu:hover{
+    background-color: #0063B4;
+    border: 1px solid #ffffff;
+    color:#ffffff;
+}
+.btn-regjitrohu:hover{
+    background-color: white;
+    border: 1px solid #0063B4;
+    color:#0063B4;
+}
+.btn-regjitrohu a{
+    text-decoration: none;
+    color:#ffffff;
+}
+.btn-regjitrohu a:hover{
+    text-decoration: none;
+    color:#407BFE;
+}
+/*Forma*/
+.login-form{
+    background-color: #ffffff;
+    color:#407BFE;
+    padding:20px;
+    min-width: 60% !important;
+}
+.input-group-text{
+    background-color: transparent !important;
+    border: 0px !important;
+    padding-left: 0px !important;
+}
+.input-group-text .far, .fas{
+    color: #407BFE;
+    width:100%
+}
+.form-control{
+    /*border-bottom: 1px solid #407BFE !important;*/
+    border-top:0px !important;
+    border-left:0px !important;
+    border-right:0px !important;
+    outline:0 !important;
+}
+.form-control:focus{
+    outline:0 !important;
+}
+.btn-login{
+    background-color: #0063B4;
+    padding: 8px 70px;
+    border: 1px solid white;
+    color:white;
+    border-radius: 25px;
+    margin-bottom:10px;
+}
+.btn-login:hover{
+    background-color: #ffffff;
+    border: 1px solid #0063B4;
+    color:#0063B4;
+}
