@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+
   <title>Faqja e Partive </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
+  table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  overflow: center;
+}
+
+th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #B079D0;
+}
 nav {
             background-color: rgba(255, 255, 255, 0.58);
         }
@@ -34,7 +50,7 @@ nav {
   }
   h3, h4 {
     margin: 10px 0 30px 0;
-    letter-spacing: 10px;      
+    letter-spacing: 10px;
     font-size: 20px;
     color: #111;
   }
@@ -53,7 +69,7 @@ nav {
   }
   .carousel-inner img {
     -webkit-filter: grayscale(40%);
-    filter: grayscale(40%); /* ben te gjitha fotot ne nje nivel te caktuar ne ngjyr gri*/ 
+    filter: grayscale(40%); /* ben te gjitha fotot ne nje nivel te caktuar ne ngjyr gri*/
     width: 100%; /* Set width to 100% */
     margin: auto;
   }
@@ -112,7 +128,7 @@ nav {
   .nav-tabs li a {
     color: #777;
   }
-  
+
 
   .open .dropdown-toggle {
     color: #fff;
@@ -135,7 +151,7 @@ nav {
   footer a:hover {
     color: #777;
     text-decoration: none;
-  }  
+  }
   .form-control {
     border-radius: 0;
   }
@@ -143,6 +159,8 @@ nav {
     resize: none;
   }
   </style>
+  <?php
+  require 'lidhjameDB.php'; ?>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -153,7 +171,7 @@ nav {
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#myPage">Sigma</a>
     </div>
@@ -163,18 +181,79 @@ nav {
         <li><a href="#Partite">Partite</a></li>
         <li><a href="#Perfaqsuesit">Perfaqsuesit</a></li>
         <li><a href="#Histori">Histori</a></li>
-        
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Me Shume
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="https://www.balkanweb.com/partite-politike-ne-shqiperi-perceptohen-si-me-te-korruptuarat-e-rajonit.com/
               "target="_blank">Imazhe</a></li>
-            <li><a href="https://sq.wikipedia.org/wiki/Kategoria:Parti_politike_n%C3%AB_Shqip%C3%ABri.com/" target="_blank">Ekstra</a></li>
-            <li><a href="https://journals.sagepub.com/doi/abs/10.1177/1940161210367422.com/" target="_blank">Media</a></li> 
+            <li><a href="https://www.rtsh.al/lajme/reforma-zgjedhore-perfundon-mbledhja-e-pare-e-keshillit-politik/" target="_blank">Ekstra</a></li>
+            <li><a href="https://journals.sagepub.com/doi/abs/10.1177/1940161210367422.com/" target="_blank">Media</a></li>
           </ul>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        <li><a href="#demo1" data-toggle='collapse'><span class="glyphicon glyphicon-search" >
+            </span></a>  </li>
+
+            <div id="demo1" class="collapse ">
+
+              <form  action="" method="post">
+
+                  <div class="form-group">
+                  <label class="col-lg-2 control-label">EMRI</label>
+                     <div class="col-lg-4">
+                       <input type="text" name="Firstname" class="form-control" placeholder="Emri" >
+                  </div>
+                        </div>
+                          <div class="form-group">
+
+                          <label class="col-lg-2 control-label">MbIemri</label>
+                             <div class="col-lg-4">
+                               <input type="text" name="Lastname" class="form-control" placeholder="Mbiemri" >
+                          </div>
+                  </div>
+
+
+
+                    <div class="form-group">
+                    <label class="col-lg-2 control-label">Partia</label>
+                    <div class="col-lg-4">
+                      <?php  require 'lidhjameDB.php';
+
+                                  $query = "SELECT * FROM tbluser";
+                                  $run = mysqli_query($conn,$query);
+                                  echo "<select id='select'name='partia'  class='form-control'>";
+                                  echo "<option> Zgjidh Partine</option>";
+                                  while($row = mysqli_fetch_array($run))
+                                  {
+                                      echo "<option>$row[Partia]</option>";
+                                  }
+                                  echo "</select>";
+                                  ?>
+                    </div>            </div>
+                      <div class="form-group">
+                      <label class="col-lg-2 control-label">Qyteti</label>
+                      <div class="col-lg-4">
+                        <?php  require 'lidhjameDB.php';
+
+                                    $query = "SELECT * FROM tbluser";
+                                    $run = mysqli_query($conn,$query);
+                                    echo "<select id='select'name='qyteti'  class='form-control'>";
+                                    echo "<option> Zgjidh Qyetetin</option>";
+                                    while($row = mysqli_fetch_array($run))
+                                    {
+                                        echo "<option>$row[Qyteti]</option>";
+                                    }
+                                    echo "</select>";
+                                    ?>
+                      </div>
+                     </div>
+                       <div class="form-group">
+                      &nbsp;  &nbsp;  &nbsp;   &nbsp;&nbsp;
+                         <input type="submit" name="submit" class="lg-3 btn btn-danger" value="Kerko"  onclick='window.location="#tabb"'></input>
+
+
+                      </div>
       </ul>
     </div>
   </div>
@@ -195,23 +274,23 @@ nav {
         <div class="carousel-caption">
           <h3>Zdhedhjet</h3>
           <p>Zgjedhjet ne Shqiperi.</p>
-        </div>      
+        </div>
       </div>
 
       <div class="item">
         <img src="evoting.jpg" alt="Imazhe" width="1200" height="700">
         <div class="carousel-caption">
-          <h3>Imazhe te partive</h3>
+          <h3>Partite</h3>
           <p>Disa parti politike.</p>
-        </div>      
+        </div>
       </div>
-    
+
       <div class="item">
         <img src="vote.jpg" alt="Partite" width="1200" height="700">
         <div class="carousel-caption">
           <h3>Partite</h3>
           <p>Partite politike ne Shqiperi</p>
-        </div>      
+        </div>
       </div>
     </div>
 
@@ -243,7 +322,7 @@ nav {
       </a>
       <div id="demo" class="collapse">
         <p>Partia A u themelua në vitin 1941 me emrin Partia A dhe në vitin 1948 ndërroi emrin duke u quajtur Partia e Punës se Shqipërisë. PPSH-ja ishte një parti marksisto-leniniste dhe udhëhoqi në formën më ekstreme. Vizioni i saj komunist ishte ndër më të rreptit. Ajo mori pushtetin në vitin 1946 dhe i dha jetë sistemit më të egër diktatorial në Evropën e bllokut Sovjetik. Ishte Shqipëria i pari shtet ne Evropë i cili ndaloi fenë me ligj kushtetues duke ndaluar kështu ushtrimin e besimit jo vetëm nëpër institucione fetare por edhe ne kushte shtepijake. Partia A u udhëhoq qysh nga fillimi nga Enver Hoxha, i cili që nga viti 1944 e deri në vitin 1954 ushtroi njëkohësisht dhe funksionin e Kryeministrit, dhe funksionin e Ministrit te Jashtëm. Shqipëria nën drejtimin e Enver Hoxhes ndoqi veç të tjerash dhe politiken e izolimit nga bota.</p>
-        
+
       </div>
     </div>
     <div class="col-sm-4">
@@ -253,7 +332,7 @@ nav {
       </a>
       <div id="demo2" class="collapse">
         <p>Partia B e Shqiperisë u krijua më 11 dhjetor të vitit 1990 nga një grup studentësh dhe intelekualësh shqiptarë midis të cilëve Azem Hajdari, Sali Berisha, Gramoz Pashko, Arben Imami, Aleksandër Meksi, Eduard Selami etj. Kryetar i Komisionit Nismëtar të Partisë Demokratike u zgjodh studenti Azem Hajdari. Me vonë kryetar i Partisë B u zgjodh Bekim Losti. Ajo ishte partia e parë opozitare pas lejimit të pluralizmit politik në Shqipëri.Në zgjedhjet parlamentare të marsit të vitit 1991, Partia B nuk arriti të fitojë shumicën në parlament. Në zgjedhjet e parakohëshme parlamentare të 22 marsit të vitit 1992 Partia B fitoi shumicën absolute të vendeve në parlament. </p>
-        
+
       </div>
     </div>
     <div class="col-sm-4">
@@ -263,7 +342,7 @@ nav {
       </a>
       <div id="demo3" class="collapse">
         <p>Paria C  është parti politike në Shqipëri. Emri i plotë i partisë partia centralizuar të cilat përdoren në simbolin, flamurin, vulën dhe në të gjithë dokumentat zyrtare të partisë. Kjo parti u krijua në vitin 2004. Kryetar  që nga themelimi ishte Lelo Pando por me zgjedhjen e këtij të fundit si Presidenti i Shqipërisë në krye të partisë ne prill 2017 u zgjodh Petrit Vasili. Pas rezultateve të zgjedhjeve të 25 qershorit 2017, pas dorëheqjes së kryetarit Petrit Vasili, i cili propozoi ndryshim të kryesisë së partisë, duke propozuar si kryetare Elisa Peku, nenkryetarë Luan Rama dhe Erisa Xhixho dhe sekretar të përgjithshëm Endrit Brahimllari. Me votim te hapur, ku morën pjesë 2300 delegatë, propozimi i Petrit Vasili u pranua duke shpallur kryetaren e parë femër të një partie politike në shqipëri.</p>
-        
+
       </div>
     </div>
   </div>
@@ -273,43 +352,72 @@ nav {
 <!-- Container (Seksioni i perfaqsuesve) -->
 <div id="Perfaqsuesit" class="bg-1">
   <div class="container">
+
+
     <h3 class="text-center">Lideret e partive kryesore!</h3>
-    <p class="text-center">Ne Shqiperi partite politike drejtohen nga liderat e tyre.Me poshte kemi vendosur te paraqesim vtm tre partite ktyesore te vendit tone dhe udheheqsit perkates te secilit prej tyre
+    <p class="text-center">Ne Shqiperi partite politike drejtohen nga liderat e tyre.Me poshte kemi vendosur te paraqesim vetem tre partite kryesore te vendit dhe udheheqesit perkates te seciles prej tyre
      <br> Mos harroni te lini nje koment </p>
-    
-    
+
+     <?php
+     $sql = "SELECT Firstname, ID FROM tbluser  ;" ;
+        $result = mysqli_query($conn,$sql);
+     $datas = array();
+  if(mysqli_num_rows($result)>0)
+  {
+  while ($row=mysqli_fetch_assoc($result)) {
+  $datas[]=$row;
+ }
+}     ?>
     <div class="row text-center">
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="edi.jpg" alt="Edi" width="400" height="300">
-          <p><strong>Andi Selo</strong></p>
-         
-          <button class="btn" data-toggle="modal" data-target="#myModal">Perfaqsuesi i partise A</button>
+
+          <p><strong>
+              <?php
+              foreach ($datas[0] as $data) {
+             echo $data;
+
+           }
+           ?>
+        </strong>  </p>
+            <a href="FqProfilit.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi A</a>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
-          <img src="luli.jpg" alt="Luli" width="400" height="300">
-          <p><strong>Bekim Losti</strong></p>
-          
-          <button class="btn" data-toggle="modal" data-target="#myModal">Perfaqsuesei i partise B</button>
+          <img src="femer.png" alt="Luli" width="400" height="300">
+          <p> <strong>
+            <?php
+            foreach ($datas[1] as $data) {
+           echo $data;
+         }
+         ?>
+      </strong>  </p>
+          <a href="FqProfilit.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi B</a>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="liri.jpg" alt="Liri" width="400" height="300">
-          <p><strong>Lelo Pando</strong></p>
-          
-          <button class="btn" data-toggle="modal" data-target="#myModal">Perfaqsuesi i partise C</button>
+          <p> <strong>
+        <?php
+             foreach ($datas[2] as $data) {
+            echo $data;
+          }
+          ?>
+          </strong>  </p>
+          <a href="FqProfilit.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi C</a>
         </div>
       </div>
+
      </div>
     </div>
-   
+
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -322,8 +430,8 @@ nav {
               <label for="psw"><span class=" glyphicon glyphicon-comment"></span> Lini nje koment </label>
               <input type="text" class="form-control" id="psw" placeholder="shkruaj ketu">
             </div>
-            
-            
+
+
               <button type="submit" class="btn btn-block">Dergo
                 <span class="glyphicon glyphicon-ok"></span>
               </button>
@@ -346,55 +454,174 @@ nav {
   <p class="text-center"><em>Mbi historine e partive!</em></p>
 
   <div class="text-center">
-    
-      
-      <p>Në Shqipëri historia e lindjes së forcave të para politike fillon me momentin e  krijimit të institucionit të parë parlamentar në vitin 1920. Kur  në Kongresin e Lushnjës u krijua Këshilli Kombëtar, ose parlamenti i parë shqiptar nuk ekzistonin forcat politike.. Pikërisht veprimtaria e sapo nisur e qeverisë dhe e Kuvendit shërbeu si nxitje për krijimin e grupeve të deputetëve që mbështesnin apo kundërshtonin qeverinë. Më 10 tetor 1920 një grup deputetësh shpallën programin politik të Partisë Popullore Kombëtare të drejtuar nga Fan Noli, Ahmet Zogu, Eshref Frashëri, Luigj Gurakuqi, etj. Rreth një muaj më vonë, në nëndor 1920 deputetë të tjerë shpallën krijimin e një force tjetër politike të quajtur Partia Përparimtare Shqiptare me drejtues figura të njohura të Veriut si Hoxhë Kadriu, Hasan Prishtina, Bajram Curri, por edhe beun më të pasur të Shqipërisë, Shefqet Vërlaci. Kjo ndarje u “institucionalizua” kur një grup prej 18 deputetësh, të vetëshpallur opozitarë dhe që përbënin gjysmën e Këshillit Kombëtar, dhanë dorëheqje duke kërkuar zgjedhje të reja. Pas zgjdhjeve të vitit fillimit të vitit 1921, në Këshillin e ri Kombëtar përfaqësoheshin dy grupime kryesore politike: Partia Popullore dhe Partia Përparimtare. Pas kësaj fillon historia e përçarjeve dhe përplasjeve brënda grupimeve të bazuara në lidhjet e interesave personale apo klanore. Megjithë programet politike të shpallura prej tyre, ato nuk ishin parti të mirëfillta politike, por grupime të motivuara për marrjen e pushtetit</p>
-      
-    </div>
-   
-      </div>
-    </div>
+
+  <p>Në Shqipëri historia e lindjes së forcave të para politike fillon me momentin e krijimit të institucionit të parë parlamentar në vitin 1920. Kur në Kongresin e Lushnjës u krijua Këshilli Kombëtar, ose parlamenti i parë shqiptar nuk ekzistonin forcat politike.. Pikërisht veprimtaria e sapo nisur e qeverisë dhe e Kuvendit shërbeu si nxitje për krijimin e grupeve të deputetëve që mbështesnin apo kundërshtonin qeverinë. Më 10 tetor 1920 një grup deputetësh shpallën programin politik të Partisë Popullore Kombëtare të drejtuar nga Fan Noli, Ahmet Zogu, Eshref Frashëri, Luigj Gurakuqi, etj. Rreth një muaj më vonë, në nëndor 1920 deputetë të tjerë shpallën krijimin e një force tjetër politike të quajtur Partia Përparimtare Shqiptare me drejtues figura të njohura të Veriut si Hoxhë Kadriu, Hasan Prishtina, Bajram Curri, por edhe beun më të pasur të Shqipërisë, Shefqet Vërlaci. Kjo ndarje u “institucionalizua” kur një grup prej 18 deputetësh, të vetëshpallur opozitarë dhe që përbënin gjysmën e Këshillit Kombëtar, dhanë dorëheqje duke kërkuar zgjedhje të reja. Pas zgjdhjeve të vitit fillimit të vitit 1921, në Këshillin e ri Kombëtar përfaqësoheshin dy grupime kryesore politike: Partia Popullore dhe Partia Përparimtare. Pas kësaj fillon historia e përçarjeve dhe përplasjeve brënda grupimeve të bazuara në lidhjet e interesave personale apo klanore. Megjithë programet politike të shpallura prej tyre, ato nuk ishin parti të mirëfillta politike, por grupime të motivuara për marrjen e pushteti.</p>
+    <br>
+    <br>
+    <br>
+    <div>
+
+</div>
+        <div class="row" >
+    <div class="m-auto">
+
+    <a href="#demo4" data-toggle="collapse"><h2>Tabela e kandidateve</h2></a>
+        <div class="container" id="tabb">
+      <div id="demo4" class="collapse">
+      <p><table id="datatableid" class="table table-striped table-bordered ">
+        <thead>
+          <tr>
+          <th >ID</th>
+          <th>Emri</th>
+          <th>Mbiemri</th>
+          <th>Karte</th>
+          <th>Roli</th>
+          <th>Mosha</th>
+          <th>Emaili</th>
+          <th>Partia</th>
+          <th>Qyeteti</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <?php
+
+
+      include("lidhjameDB.php");
+
+      if(!isset($_POST['submit'])){
+      $sql = "SELECT * FROM tbluser  where Roli='Kandidate';" ;
+      $result = mysqli_query($conn,$sql);
+      $resultCheck = mysqli_num_rows($result);
+
+      if($resultCheck > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+
+      $ID= $row["ID"] ;
+      $Emri= $row["Firstname"] ;
+      $Mbiemri= $row["Lastname"] ;
+      $Emaili=$row["Email"];
+      $Karte = $row["KarteID"] ;
+      $Roli =$row["Roli"];
+      $mosha =$row["Mosha"];
+      $partia=$row["Partia"];
+      $qyteti=$row["Qyteti"];
+      ?>
+   <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+   <td>  <?php echo $Emri  ?></td>
+   <td>  <?php echo $Mbiemri  ?></td>
+   <td>  <?php echo $Karte  ?></td>
+   <td>  <?php echo $Roli  ?></td>
+   <td>  <?php echo $mosha  ?></td>
+   <td>  <?php echo  $Emaili?></td>
+   <td>  <?php echo  $partia?></td>.
+   <td>  <?php echo  $qyteti?></td>
+   </tr>
+   <?php
+   }
+   }
+   else{
+   ?>
+   <tr>
+   <td>ska te dhena </td>
+   </tr>
+   <?php
+   }
+   }
+   else {
+     $Emri = $_POST["Firstname"] ;
+   $Mbiemri = $_POST['Lastname'];
+   $partia = $_POST["partia"];
+   $qyteti=$_POST["qyteti"];
+
+
+        if ($Emri!=""||$partia!="" ||$Mbiemri!=""||$qyteti!="") {
+
+            $sql = "SELECT * FROM tbluser WHERE  Roli='Kandidate' and
+            Firstname = '$Emri' ||  Lastname = '$Mbiemri' || Partia='$partia'  || Qyteti='$qyteti' ;" ;
+              $result = mysqli_query($conn,$sql);
+        $resultCheck = mysqli_num_rows($result);
+
+        if($resultCheck > 0) {
+         while ($row = mysqli_fetch_assoc($result)) {
+
+     $ID= $row["ID"] ;
+     $Emri= $row["Firstname"] ;
+     $Mbiemri= $row["Lastname"] ;
+     $Emaili=$row["Email"];
+     $Karte = $row["KarteID"] ;
+     $Roli =$row["Roli"];
+     $mosha =$row["Mosha"];
+     $partia=$row["Partia"];
+     $qyteti=$row["Qyteti"];
+
+     ?>
+  <tr>
+     <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+     <td>  <?php echo $Emri  ?></td>
+     <td>  <?php echo $Mbiemri  ?></td>
+     <td>  <?php echo $Karte  ?></td>
+     <td>  <?php echo $Roli  ?></td>
+     <td>  <?php echo $mosha  ?></td>
+     <td>  <?php echo $Emaili?></td>
+     <td>  <?php echo $partia?></td>.
+     <td>  <?php echo $qyteti?></td>
+  </tr>
+     <?php
+   }
+   }
+     else{
+     ?>
+     <tr>
+     <td>ska te dhena </td>
+     </tr>
+     <?php
+   }
+   }}
+   ?>
+   </tbody>
+</table>
+    </p>
   </div>
+  </div>
+</div>
+  </div>
+
   <br>
-  <h3 class="text-center">Faleminderit qe vizituat faqen tone!</h3>  
+
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Stafi</a></li>
     </ul>
-
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <h2>Faleminderit!</h2>
-      <p>Shpresojme te keni gjetur informacionin e nevojshem.</p>
+      <h2>Faleminderit</h2>
+      <p>Shpresojm te keni gjetur informacionin e nevojshem</p>
     </div>
-
   </div>
 </div>
 
 
-<img src="hie.jpg" class="img-responsive" style="width:100%" "height:100%">
+<img src="hie.jpg" class=" img-responsive" style="width:100%" "height:100%">
 
 <!-- Footer -->
 <footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
     <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br> 
+  </a><br><br>
 
   <p> <div class="footer">
           <p>sistemi politik<b>2020</b></p>
-        </div></p> 
+        </div></p>
       </footer>
-
-
-
 
 
 <script>
 $(document).ready(function(){
   //  Inicializojm Tooltip
-  $('[data-toggle="tooltip"]').tooltip(); 
-  
-  
-        // Shton nje  smooth scrolling tek te gjithe  linqet ne navbar + footer 
+  $('[data-toggle="tooltip"]').tooltip();
+
+
+        // Shton nje  smooth scrolling tek te gjithe  linqet ne navbar + footer
   $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
 
     // this.hash Duhet ptjt te ket nje vlere perpara default behavior.
@@ -411,7 +638,7 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-   
+
         // Shtojm nje hash(#) tek URL kur mbaroojm  scrolling (default click behavior)
         window.location.hash = hash;
       });
