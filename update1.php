@@ -1,5 +1,5 @@
 <?php
-require_once ("lidhjadb.php");
+require_once ("lidhjameDB.php");
 if(isset($_POST['Update']))
 {
 
