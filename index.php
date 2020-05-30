@@ -70,6 +70,19 @@ include_once('header.php');
             color: #601563;
         }
 
+        .btn-profili{
+            background-color: #407BFE;
+            padding: 10px 40px;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            border-radius: 25px;
+            margin-bottom: 10px;
+        }
+        .btn-profili:hover{
+            background-color: #ffffff;
+            border: 1px solid #407BFE;
+            color: #407BFE;
+        }
         .col-md-12 {
             padding: 0px;
         }
@@ -122,13 +135,16 @@ include_once('header.php');
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="poster" style="background-image:url('./fotot/main2.jpg')">
+                    <div class="poster" style="background-image:url('./fotot/main2.png')">
                         <div class="overlay">
                             <h4><span>"</span>
                                 Votimi është shprehja e angazhimit tonë ndaj vetvetes, njëri-tjetrit, këtij vendi dhe kësaj bote.
                                 <span>"</span></h4>
                             <h5><em>-Sharon Salzberg</em></h5>
+                            <div>
                             <a href="Identifikimi.php"><button class="btn-voto">Voto tani</button></a>
+                            <a href="#"><button class="btn-profili">Shko te  profili</button></a>
+                            </div>
                         </div>
                     </div>
                 </div>

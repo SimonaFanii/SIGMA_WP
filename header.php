@@ -25,6 +25,23 @@ include_once('links.php');
             color: #01001F !important;
         }
     </style>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+        var id = window.localStorage.getItem('sigma');
+        if(id){
+            console.log('here')
+           $('#identifikohu').css('display','none');
+           $('#regjistrohu').css('display','none');
+           $('#logout').css('display','block');
+        }
+        else if(!id){
+            $('#identifikohu').css('display','block');
+           $('#regjistrohu').css('display','block');
+            $('#logout').css('display','none');
+        }
+        
+    });
+    </script>
 </head>
 
 <body>
@@ -40,10 +57,22 @@ include_once('links.php');
                     <a class="nav-link" href="index.php">Faqe kryesore</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Identifikimi.php">Identifikohu</a>
+                    <a class="nav-link" href="Rezultati.php">Rezultati</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">Partite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rreth nesh</a>
+                </li>
+                <li class="nav-item" id='identifikohu'>
+                    <a class="nav-link" href="Identifikimi.php">Identifikohu</a>
+                </li>
+                <li class="nav-item" id='regjistrohu'>
                     <a class="nav-link" href="Regjistrimi.php">Regjistrohu</a>
+                </li>
+                <li class="nav-item" id="logout">
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>

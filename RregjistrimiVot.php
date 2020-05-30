@@ -1,7 +1,9 @@
 <!--
 layouti i faqes se rregjistrimit
 -->
-
+<?php 
+include_once('code_qyteti.php');
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -34,6 +36,7 @@ layouti i faqes se rregjistrimit
         background-color: rgba(26, 26, 54, 0.39);
         background-size: cover;
         background-repeat: no-repeat;
+        padding-top:150px;
     }
 
     .button {
@@ -80,6 +83,22 @@ layouti i faqes se rregjistrimit
         color: #ffffff;
     }
 </style>
+
+<script>
+     document.addEventListener("DOMContentLoaded", function(e) {
+        $(document).on('click', '.toggle-password1', function() {
+         $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $("#pwd1");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+        });
+        $(document).on('click', '.toggle-password2', function() {
+         $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $("#pwd");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+        });
+    })
+</script>
+
 </head>
 <body>
 <?php
@@ -89,7 +108,7 @@ require_once "codi_rregjistrimitVot.php";
 ?>
 <main>
 <div class="row first-row">
-    <div class="col-md-12 cover" style="background-image:url('./fotot/cover2.jpg')"></div>
+    <!-- <div class="col-md-12 cover" style="background-image:url('./fotot/cover2.jpg')"></div> -->
     <div class="col-md-2"></div>
     <div class="col-md-8 d-flex flex-row justify-content-around align-items-center">
         <button class="button kandidat"><a class="nav-link" href="./Regjistrimi.php">Regjistrohu si kandidat</a></button>
@@ -163,12 +182,27 @@ require_once "codi_rregjistrimitVot.php";
                     <span class="error"> <?php echo  $emailerr; ?></span>
                 </div>
                 <div class="form-group">
+                        <label class="control-label" for="qyteti">* Qyteti:</label>
+                        <select  name="qyteti" id="qyteti">
+                        <option value=''>Zgjidhni nje qytet</option>
+                            <?php
+                            while ($row = mysqli_fetch_array($resultQytet)) {
+                                echo '
+                                <option value='.$row['IdQytet'].'>'.$row['EmerQytet'].'</option>
+                                ';
+                            }
+                            ?>
+                    </select>
+                </div>
+                <span class="error"> <?php echo  $qytetierr; ?></span>
+                <div class="form-group">
                     <label class="control-label" for="pwd">* Password:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-unlock"></i></div>
                         </div>
                         <input type="password" name="password" class="form-control" id="pwd" placeholder="Vendos password">
+                        <div class="input-group-text"><span style="color:#01001F" toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password2"></span></div>
                     </div>
                     <span class="error"> <?php echo  $passworderr; ?></span>
                 </div>
@@ -179,6 +213,7 @@ require_once "codi_rregjistrimitVot.php";
                             <div class="input-group-text"><i class="fas fa-unlock"></i></div>
                         </div>
                         <input type="password" name="password1" class="form-control" id="pwd1" placeholder="Ri-vendos password">
+                        <div class="input-group-text"><span style="color:#01001F" toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password1"></span></div>
                     </div>
                     <span class="error"> <?php echo  $password1err; ?></span>
                 </div>
@@ -186,9 +221,9 @@ require_once "codi_rregjistrimitVot.php";
                     <input type="checkbox" name="cb" id="cb" value="">
                     <span>I agree to the terms of service</span>
                 </div>
-                <input type="submit" name="regjistrohu" class="btn-register pt-2" value="Regjistrohu">
-                <form/>
-                <div class="pt-2">Keni nje llogari? Shkoni te <a href="Identifikimi.php">Identifikim</a><div/>
+                <input type="submit" name="regjistrohu1" class="btn-register pt-2" value="Regjistrohu">
+                <form>
+                <div class="pt-2">Keni nje llogari? Shkoni te <a href="Identifikimi.php">Identifikim</a></div>
                 </div>
         </div>
         <div class="col-md-3"></div>

@@ -1,6 +1,9 @@
 <!--
 layouti i faqes se rregjistrimit
 -->
+<?php 
+include_once('code_qyteti.php');
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -12,6 +15,7 @@ layouti i faqes se rregjistrimit
     </style>
     <!-- <link rel="stylesheet" href="./css/regjistrimi.css"/> -->
     <link rel="stylesheet" type="text/css" href="./css/regjistrimi.css?<?php echo time(); ?>" />
+    <link rel="stylesheet" href="./Votimi/radiobuttons.css?<?php echo time(); ?>"/>
     <style>
         .cover {
             height: 50vh;
@@ -38,6 +42,7 @@ layouti i faqes se rregjistrimit
             background-color: rgba(176, 121, 208, 0.2);
             background-size: cover;
             background-repeat: no-repeat;
+            padding-top:150px;
         }
 
         .button {
@@ -85,17 +90,38 @@ layouti i faqes se rregjistrimit
             color: #ffffff;
         }
     </style>
+    <script>
+     document.addEventListener("DOMContentLoaded", function(e) {
+        $(document).on('click', '.toggle-password3', function() {
+         $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $("#pwd1");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+        });
+        $(document).on('click', '.toggle-password4', function() {
+         $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $("#pwd");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+        });
+    })
+
+</script>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    
+})
+</script>
 </head>
 
 <body>
     <?php
-    include_once('header.php');
-    include_once('links.php');
+    require_once('header.php');
+    require_once('links.php');
     require_once "codi_rregjistrimit.php";
     ?>
     <main>
         <div class="row first-row">
-            <div class="col-md-12 cover" style="background-image:url('./fotot/cover1.jpg')"></div>
+            <!-- <div class="col-md-12 cover" style="background-image:url('./fotot/cover1.jpg')"></div> -->
             <div class="col-md-2"></div>
             <div class="col-md-8 d-flex flex-row justify-content-around align-items-center">
                 <button class="button kandidat"><a class="nav-link" href="./Regjistrimi.php">Regjistrohu si kandidat</a></button>
@@ -168,6 +194,41 @@ layouti i faqes se rregjistrimit
                             </div>
                             <span class="error"> <?php echo  $emailerr; ?></span>
                         </div>
+                       
+                     
+                     
+                     
+                        <div class="form-group">
+                        <label class="control-label" for="qyteti">* Qyteti:</label>
+                        <select  name="qyteti" id="qyteti">
+                        <option value=''>Zgjidhni nje qytet</option>
+                            <?php
+                            while ($row = mysqli_fetch_array($resultQytet)) {
+                                echo '
+                                <option value='.$row['IdQytet'].'>'.$row['EmerQytet'].'</option>
+                                ';
+                            }
+                            ?>
+                        </select>
+                        </div>
+                        <span class="error"> <?php echo  $qytetierr; ?></span>
+                        <div class="form-group">
+                        <label class="control-label" for="part">* Partia:</label>
+                        <?php
+                        while ($row = mysqli_fetch_array($resultParti)) {
+                            echo '
+                            <label class="container-parti">'.$row['EmerParti'].'
+                            <input type="radio" name="part" id="part" value="'.$row['IdParti'].'" >
+                            <span class="checkmark"></span>
+                            </label>
+                            ';
+                        }
+                        ?>
+                         <span class="error"> <?php echo  $partierr; ?></span>
+                        </div>
+                       
+                       
+                       
                         <div class="form-group">
                             <label class="control-label" for="pwd">* Password:</label>
                             <div class="input-group">
@@ -175,6 +236,7 @@ layouti i faqes se rregjistrimit
                                     <div class="input-group-text"><i class="fas fa-unlock"></i></div>
                                 </div>
                                 <input type="password" name="password" class="form-control" id="pwd" placeholder="Vendos password">
+                                <div class="input-group-text"><span style="color:#601563" toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password4"></span></div>
                             </div>
                             <span class="error"> <?php echo  $passworderr; ?></span>
                         </div>
@@ -185,6 +247,7 @@ layouti i faqes se rregjistrimit
                                     <div class="input-group-text"><i class="fas fa-unlock"></i></div>
                                 </div>
                                 <input type="password" name="password1" class="form-control" id="pwd1" placeholder="Ri-vendos password">
+                                <div class="input-group-text"><span style="color:#601563" toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password3"></span></div>
                             </div>
                             <span class="error"> <?php echo  $password1err; ?></span>
                         </div>
@@ -194,9 +257,9 @@ layouti i faqes se rregjistrimit
                         </div>
                         <div class="form-group">
                         <input type="submit" name="regjistrohu" class="btn-register pt-2" value="Regjistrohu"></div>
-                        <form />
+                        </form >
                         <div class="pt-2">Keni nje llogari? Shkoni te <a href="Identifikimi.php">Identifikim</a>
-                            <div />
+                            </div >
                         </div>
                 </div>
                 <div class="col-md-3"></div>

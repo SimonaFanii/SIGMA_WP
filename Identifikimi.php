@@ -20,9 +20,24 @@ Layouti i faqes se identifikimit
         .col-md-12 {
             padding: 0px !important;
         }
+        input{
+            outline:0;
+        }
     </style>
     <!-- <link rel="stylesheet" href="./css/identifikimi.css"/> -->
     <link rel="stylesheet" type="text/css" href="./css/identifikimi.css?<?php echo time(); ?>" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(e) {
+        $(document).on('click', '.toggle-password', function() {
+         $(this).toggleClass("fa-eye fa-eye-slash");
+
+        var input = $("#pwd");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+        });
+    })
+    </script>
 </head>
 
 <body>
@@ -33,9 +48,9 @@ Layouti i faqes se identifikimit
     ?>
 
     <main>
-        <div class="row first-row">
+        <!-- <div class="row first-row">
             <div class="col-md-12 cover" style="background-image:url('./fotot/cover3.jpg')"></div>
-        </div>
+        </div> -->
         <div class="row row-second">
             <div class="col-md-3"></div>
             <div class="col-md-6 d-flex flex-row">
@@ -77,11 +92,15 @@ Layouti i faqes se identifikimit
                     <div class="input-group-prepend">
                         <div class="input-group-text"><i class="fas fa-unlock"></i></div>
                     </div>
-                    <input type="password" class="form-control" <?php echo "style=\"border-bottom:1px solid $borderColor !important\"" ?> name="password" id="pwd" placeholder="Vendos password" required>
+                    <input  type="password" class="form-control" <?php echo "style=\"border-bottom:1px solid $borderColor !important\"" ?> name="password" id="pwd" placeholder="Vendos password" required>
+                    <div class="input-group-prepend" style="border-bottom:1px solid #407BFE">
+                    <div class="input-group-text"><span style="color:#407BFE" toggle="#password-field" class="fa fa-fw fa-eye field_icon toggle-password"></span></div>
+                    </div>
+                    
                             </div>
                         </div>
                         <button type="submit" name="login" class="btn-login pt-2">Identifikohu</button>
-                        <form />
+                        </form>
                 </div>
             </div>
             <div class="col-md-3"></div>
