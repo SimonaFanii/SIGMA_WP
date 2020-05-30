@@ -29,7 +29,6 @@ include_once('links.php');
     document.addEventListener("DOMContentLoaded", function(e) {
         var id = window.localStorage.getItem('sigma');
         if(id){
-            console.log('here')
            $('#identifikohu').css('display','none');
            $('#regjistrohu').css('display','none');
            $('#logout').css('display','block');
@@ -43,7 +42,6 @@ include_once('links.php');
     });
     </script>
 </head>
-
 <body>
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -60,10 +58,10 @@ include_once('links.php');
                     <a class="nav-link" href="Rezultati.php">Rezultati</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Partite</a>
+                    <a class="nav-link" href="FqPartive.php">Partite</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Rreth nesh</a>
+                    <a class="nav-link" href="I.Perdorim/stavro.html">Rreth nesh</a>
                 </li>
                 <li class="nav-item" id='identifikohu'>
                     <a class="nav-link" href="Identifikimi.php">Identifikohu</a>

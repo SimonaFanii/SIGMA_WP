@@ -4,7 +4,9 @@
 <?php
 require_once ("lidhjameDB.php");
 ?>
-
+<?php
+include_once('header.php');
+?>
   <title>Profili kandidatit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!---->
