@@ -1,14 +1,22 @@
 <!--
 kodi i regjistrimit te kandidateve
 -->
+
+
+
 <?php
+require_once('lidhjameDB.php');
+$queryQytet="select EmerQytet,IdQytet from qytete";
+$resultQytet = mysqli_query($conn,$queryQytet);
+$qyteti = 1;
+if(isset($_POST['regjistrohu'])) {
+    $qyteti = $_POST['qyteti'];
+}
 
+$iderr = $emrierr = $mbiemrierr = $moshaerr = $emailerr = $passworderr = $pwder = $password1err = $password1 = $qytetierr  = '';
+$id = $emri = $mbiemri = $mosha = $email =$qyteti = $password = $pwd = $pwd1 = $password1 =$Nuiv=$Nui = $N = $NuiV ='';
 
-$iderr = $emrierr = $mbiemrierr = $moshaerr = $emailerr = $passworderr = $pwder = $password1err = $password1  = '';
-$id = $emri = $mbiemri = $mosha = $email = $password = $pwd = $pwd1 = $password1  = '';
-
-
-if (isset($_POST['regjistrohu'])) {
+if (isset($_POST['regjistrohu1'])) {
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once('lidhjameDB.php');
     $emri = $_POST['emri'];
@@ -18,7 +26,7 @@ if (isset($_POST['regjistrohu'])) {
     $email = $_POST['email'];
     $pwd = $_POST['password'];
     $pwd1 = $_POST['password1'];
-
+    $qyteti=$_POST['qyteti'];
 
 
     $uppercase = preg_match('@[A-Z]@', $pwd);
@@ -26,12 +34,33 @@ if (isset($_POST['regjistrohu'])) {
     $number    = preg_match('@[0-9]@', $pwd);
     $specialChars = preg_match('@[^\w]@', $pwd);
 }
+$encryptedPassword = md5($pwd);
 
-$sql ="INSERT INTO tbluserv ( KarteID , Firstname , Lastname , Mosha , Email , Password) VALUES ('$id','$emri','$mbiemri','$mosha','$email','$pwd')";
+$query1="SELECT * FROM `votuesnui` WHERE `NUIV`='$id'";
+$result1 = $conn->query($query1);
+$row1 = $result1->fetch_assoc();
 
+
+
+$Nuiv="SELECT idV FROM `votuesnui` WHERE `NUIV`='$id'";
+$Nui = $conn->query($Nuiv);
+$N=$Nui->fetch_assoc();
+//$NuiV=implode($N);
+if(!is_array($N)){
+    $NuiV=$NuiV.$N;
+}
+//$sql ="INSERT INTO tbluserv ( KarteID , Firstname , Lastname , Mosha , Email , Password) VALUES ('$id','$emri','$mbiemri','$mosha','$email','$pwd')";
+$sql ="INSERT INTO tbluser ( KarteID , Firstname , Lastname , Mosha , Email , Password ,Roli,NuiV ,qyteti) VALUES ('$id','$emri','$mbiemri','$mosha','$email','$encryptedPassword','votues','$NuiV','$qyteti')";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['id'])) {
         $iderr = "Vendos id...";
+    }
+    elseif(!$row1){
+        $iderr="Gabim! Kjo Id nuk ekziston, vendosni Id e sakte!";
+    }
+
+    elseif (strlen($_POST['id'])<=7) {
+        $idErr = "ID shume e shkurter...";
     }
     elseif (strlen($_POST['id'])<=7) {
         $idErr = "ID shume e shkurter...";
@@ -86,12 +115,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password1err="Fjalkalimet nuk jane te njejte...";
     }
     if(!empty($id)){
-        $rs=mysqli_query($conn,"select * from tbluserv where KarteID='$id' ");
+        $rs=mysqli_query($conn,"select * from tbluser where KarteID='$id'");
         if (mysqli_num_rows($rs)>0)
         {
             $iderr = "Ky perdorues ekziston";
         }
     }
+    if(isset($_POST['qyteti']) && $_POST['qyteti'] == '') { 
+        $qytetierr="Zgjidh qytetin";
+      } 
+
     if(empty($iderr) && empty($emrierr) && empty($mbiemrierr)&& empty($moshaerr) && empty($emailerr) && empty($passworderr) && empty($password1err)) {
         $result =mysqli_query($conn, $sql);
         echo    "<script>
@@ -99,3 +132,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </script>";
     }
 }
+
+?>

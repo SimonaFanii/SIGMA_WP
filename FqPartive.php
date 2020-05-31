@@ -226,7 +226,7 @@ nav {
                                   echo "<option> Zgjidh Partine</option>";
                                   while($row = mysqli_fetch_array($run))
                                   {
-                                      echo "<option>$row[Partia]</option>";
+                                      echo "<option>$row[Parti]</option>";
                                   }
                                   echo "</select>";
                                   ?>
@@ -242,7 +242,7 @@ nav {
                                     echo "<option> Zgjidh Qyetetin</option>";
                                     while($row = mysqli_fetch_array($run))
                                     {
-                                        echo "<option>$row[Qyteti]</option>";
+                                        echo "<option>$row[qyteti]</option>";
                                     }
                                     echo "</select>";
                                     ?>
@@ -504,8 +504,8 @@ nav {
       $Karte = $row["KarteID"] ;
       $Roli =$row["Roli"];
       $mosha =$row["Mosha"];
-      $partia=$row["Partia"];
-      $qyteti=$row["Qyteti"];
+      $partia=$row["Parti"];
+      $qyteti=$row["qyteti"];
       ?>
    <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
    <td>  <?php echo $Emri  ?></td>
@@ -538,7 +538,7 @@ nav {
         if ($Emri!=""||$partia!="" ||$Mbiemri!=""||$qyteti!="") {
 
             $sql = "SELECT * FROM tbluser WHERE  Roli='Kandidate' and
-            Firstname = '$Emri' ||  Lastname = '$Mbiemri' || Partia='$partia'  || Qyteti='$qyteti' ;" ;
+            Firstname = '$Emri' ||  Lastname = '$Mbiemri' || Parti='$partia'  || qyteti='$qyteti' ;" ;
               $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);
 
@@ -552,8 +552,8 @@ nav {
      $Karte = $row["KarteID"] ;
      $Roli =$row["Roli"];
      $mosha =$row["Mosha"];
-     $partia=$row["Partia"];
-     $qyteti=$row["Qyteti"];
+     $partia=$row["Parti"];
+     $qyteti=$row["qyteti"];
 
      ?>
   <tr>

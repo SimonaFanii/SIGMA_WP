@@ -1,15 +1,15 @@
 <?php
 require_once ("lidhjameDB.php");
-$ID=$_GET['GetID'];
 
-$query = "SELECT * FROM tbluser WHERE ID = '".$ID."' and Roli='Kandidate'";
+$ID=$_GET['GetID'];
+$query = "SELECT * FROM tbluser WHERE ID = '".$ID."' and Roli='Kandidate'  and ID='".$ID."' " ;
 $result=mysqli_query($conn,$query);
 
   while ($row=mysqli_fetch_assoc($result)) {
 
     $ID= $row["ID"] ;
     $Emaili=$row["Email"];
-    $platforma=$row["Platforma"];
+    $platforma=$row["platforma"];
     $Passwordi=$row["Password"];
 
 }
@@ -40,11 +40,15 @@ $result=mysqli_query($conn,$query);
 
 
     <form action="update1.php?ID= <?php echo $ID?>" method="POST" >
-      Emaili
+    <label for="email"> Emaili</label>
       <input type="text" name="email" class="form-control mb-2" placeholder="E-mail" value="<?php echo $Emaili?>">
-      Passwordi
-      <input type="text" name="password" class="form-control mb-2" placeholder="Paswwordi" value="<?php echo $Passwordi?>">
-Platforma
+      <label for="password"> Passwordi vjeter</label>
+      <input type="text" name="password" class="form-control mb-2" placeholder="Passwordi" value="<?php echo $Passwordi?>">
+      <label for="password"> Passwordi ri</label>
+      <input type="password" name="pass" class="form-control mb-2" placeholder="Passwordi">
+      <input type="password" name="pass2" class="form-control mb-2" placeholder="Paswwordi" >
+
+      <label for="platforma">Platforma</label>
       <textarea rows="4" cols="50" name="platforma"  class="form-control mb-2" placeholder="Platforma"value="<?php echo $platforma?>"><?php echo $platforma?>
     </textarea>
    <button class="btn btn-primary" id="btn1"  name="Update">Update</button>
