@@ -29,6 +29,7 @@ $ID = '';
 if( isset( $_GET['GetID'])) {
     $ID = $_GET['GetID']; 
 } 
+
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."'";
 $result=mysqli_query($conn,$query);
 
