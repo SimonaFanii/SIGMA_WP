@@ -173,15 +173,21 @@ nav {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#myPage">Sigma</a>
+      <a class="navbar-brand" href="index.php">Sigma</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-         <li><a href="#myPage">HOME</a></li>
-        <li><a href="#Partite">Partite</a></li>
-        <li><a href="#Perfaqsuesit">Perfaqsuesit</a></li>
-        <li><a href="#Histori">Histori</a></li>
-
+         <li><a href="index.php">Faqe kryesore</a></li>
+        <!-- <li><a href="#Partite">Partite</a></li>
+        <li><a href="#Perfaqsuesit">Perfaqsuesit</a></li> -->
+        <li class="nav-item">
+                    <a class="nav-link" href="rrethnesh.php">Rreth nesh</a>
+                </li>
+                <li class="nav-item" id='identifikohu'>
+                    <a class="nav-link" href="Identifikimi.php">Identifikohu</a>
+                </li>
+        
+        <li><a href="Regjistrimi.php">Regjistrohu</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Me Shume
           <span class="caret"></span></a>

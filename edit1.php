@@ -1,7 +1,12 @@
 <?php
 require_once ("lidhjameDB.php");
 
-$ID=$_GET['GetID'];
+// $ID=$_GET['GetID'];
+$Emaili = $platforma = '';
+$ID = ''; 
+if( isset( $_GET['GetID'])) {
+    $ID = $_GET['GetID']; 
+} 
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."' and Roli='Kandidat'  and ID='".$ID."' " ;
 $result=mysqli_query($conn,$query);
 

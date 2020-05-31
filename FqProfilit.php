@@ -1,3 +1,8 @@
+<?php
+include_once('header.php');
+include_once('links.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,13 +24,19 @@ require_once ("lidhjameDB.php");
 
 <?php
 //if(isset($_POST['first']) && isset($_POST['last'])) lidhja me afishi/
-$ID=$_GET['GetID'];
+
+$ID = ''; 
+if( isset( $_GET['GetID'])) {
+    $ID = $_GET['GetID']; 
+    
+} 
 
 
 //$parameter=$_GET['id'];
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."'";
 $result=mysqli_query($conn,$query);
 
+$ID=  $Emri=  $Mbiemri= $Emaili=  $Karte = $Passwordi = $Roli = $mosha =  $Partia=  $Qyteti=  $platforma=  $NUIK=  $NUIV='';
   while ($row=mysqli_fetch_assoc($result)) {
 
 
@@ -75,8 +86,8 @@ $result=mysqli_query($conn,$query);
     </div>
     <div class="profile-option">
       <div class="notification">
-        <i class="fa fa-bell"></i>
-        <span class="alert-message">3</span>
+      <i class="fas fa-vote-yea"></i>
+       
       </div>
     </div>
   </div>
@@ -84,7 +95,7 @@ $result=mysqli_query($conn,$query);
   <div class="main-bd">
     <div class="left-side">
       <div class="profile-side">
-        <p class="mobile-no"><i class="fa fa-phone"></i> +3556884546</p>
+        <p class="mobile-no"><i class="fas fa-file-signature"></i> <?php   echo "$Emri";?></p>
         <p class="user-mail"><i class="fa fa-envelope"></i>  <?php   echo "$Emaili";?></p>
         <div class="user-bio">
           <h2 class="text-center">Bio</h2>
