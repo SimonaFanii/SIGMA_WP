@@ -1,7 +1,12 @@
 <?php
 require_once ("lidhjameDB.php");
 
-$ID=$_GET['GetID'];
+
+$ID = ''; 
+if( isset( $_GET['GetID'])) {
+    $ID = $_GET['GetID']; 
+} 
+// $ID=$_GET['GetID'];
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."' and Roli='Kandidate'  and ID='".$ID."' " ;
 $result=mysqli_query($conn,$query);
 
@@ -13,6 +18,7 @@ $result=mysqli_query($conn,$query);
     $Passwordi=$row["Password"];
 
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
