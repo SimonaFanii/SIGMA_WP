@@ -24,7 +24,11 @@ require_once ("lidhjameDB.php");
 
 <?php
 //if(isset($_POST['first']) && isset($_POST['last'])) lidhja me afishi
-$ID=$_GET['GetID'];
+// $ID=$_GET['GetID'];
+$ID = ''; 
+if( isset( $_GET['GetID'])) {
+    $ID = $_GET['GetID']; 
+} 
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."'";
 $result=mysqli_query($conn,$query);
 
