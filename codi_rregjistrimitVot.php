@@ -33,6 +33,14 @@ if (isset($_POST['regjistrohu1'])) {
     $lowercase = preg_match('@[a-z]@', $pwd);
     $number    = preg_match('@[0-9]@', $pwd);
     $specialChars = preg_match('@[^\w]@', $pwd);
+
+    $queryNUIV="select * from votuesnui where votuesnui.NUIV='$id'";
+    $resultNUIV = $conn->query($queryNUIV);
+    $rowVotues = $resultNUIV->fetch_assoc();
+    if($rowVotues){
+    $id = $rowVotues['NUIV'];
+    $NuiV =  $rowVotues['idV'];   
+    }
 }
 $encryptedPassword = md5($pwd);
 
@@ -42,13 +50,6 @@ $row1 = $result1->fetch_assoc();
 
 
 
-$Nuiv="SELECT idV FROM `votuesnui` WHERE `NUIV`='$id'";
-$Nui = $conn->query($Nuiv);
-$N=$Nui->fetch_assoc();
-//$NuiV=implode($N);
-if(!is_array($N)){
-    $NuiV=$NuiV.$N;
-}
 //$sql ="INSERT INTO tbluserv ( KarteID , Firstname , Lastname , Mosha , Email , Password) VALUES ('$id','$emri','$mbiemri','$mosha','$email','$pwd')";
 $sql ="INSERT INTO tbluser ( KarteID , Firstname , Lastname , Mosha , Email , Password ,Roli,NuiV ,qyteti) VALUES ('$id','$emri','$mbiemri','$mosha','$email','$encryptedPassword','votues','$NuiV','$qyteti')";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

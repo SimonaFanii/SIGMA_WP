@@ -36,9 +36,10 @@ if (isset($_POST['regjistrohu'])) {
     $queryKandidatNUIK="select * from kandidatnui where kandidatnui.NUIK='$id'";
     $resultKandidatNUIK = $conn->query($queryKandidatNUIK);
     $rowKandidat = $resultKandidatNUIK->fetch_assoc();
+    if($rowKandidat){
     $id = $rowKandidat['NUIK'];
     $NuiK =  $rowKandidat['idK'];   
-
+    }
 }
 
 // $query1="SELECT * FROM `kandidatnui` WHERE `NUIK`='$id'";
@@ -58,7 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST['id'])) {
         $iderr = "Vendos id...";
     }
-    elseif(!$rowKandidat){$iderr="Gabim! Kjo Id nuk ekziston, ju nuk jeni autorizuar per te qene kandidate.";}
+    elseif(!$rowKandidat){
+        $iderr="Gabim! Kjo Id nuk ekziston, ju nuk jeni autorizuar per te qene kandidate.";
+    }
+
     elseif (strlen($_POST['id'])<=7) {
         $idErr = "ID shume e shkurter...";
     }
@@ -128,7 +132,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if(empty($iderr) && empty($emrierr) && empty($mbiemrierr)&& empty($moshaerr) && empty($emailerr) && empty($passworderr) && empty($password1err)) {
-        $sql ="INSERT INTO tbluser ( KarteID , Firstname , Lastname , Mosha , Email , Password ,Roli,NuiK,Parti,qyteti) VALUES ('$id','$emri','$mbiemri','$mosha','$email','$encryptedPass','kandidat','$NuiK','$parti','$qyteti')";
+        $sql ="INSERT INTO tbluser ( KarteID , Firstname , Lastname , Mosha , Email , Password ,Roli,NuiK,Parti,qyteti)
+         VALUES ('$id','$emri','$mbiemri','$mosha','$email','$encryptedPass','kandidat','$NuiK','$parti','$qyteti')";
         $result =$conn -> query($sql);
         if($result) {
             echo    "<script>
