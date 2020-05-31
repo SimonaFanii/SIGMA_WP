@@ -70,6 +70,7 @@ $ID=  $Emri=  $Mbiemri= $Emaili=  $Karte = $Passwordi = $Roli = $mosha =  $Parti
     </div>
     <div class="profile-nav-info">
   <h2>
+    
       <?php
       echo "$Emri &nbsp";
       echo "$Mbiemri";

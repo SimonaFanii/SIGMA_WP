@@ -91,7 +91,7 @@ $result=mysqli_query($conn,$query);
   <div class="main-bd">
     <div class="left-side">
       <div class="profile-side">
-      <p class="mobile-no"><i class="fas fa-file-signature"></i> <?php   echo "$Emri";?></p>
+       <p class="mobile-no"><i class="fas fa-file-signature"></i> <?php   echo "$Emri";?></p>
         <p class="user-mail"><i class="fa fa-envelope"></i>  <?php   echo "$Emaili";?></p>
         <div class="user-bio">
           <h2 class="text-center">Bio</h2>
