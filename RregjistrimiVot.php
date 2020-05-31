@@ -217,10 +217,10 @@ require_once "codi_rregjistrimitVot.php";
                     </div>
                     <span class="error"> <?php echo  $password1err; ?></span>
                 </div>
-                <div class="checkbox pb-1">
+                <!-- <div class="checkbox pb-1">
                     <input type="checkbox" name="cb" id="cb" value="">
                     <span>I agree to the terms of service</span>
-                </div>
+                </div> -->
                 <input type="submit" name="regjistrohu1" class="btn-register pt-2" value="Regjistrohu">
                 <form>
                 <div class="pt-2">Keni nje llogari? Shkoni te <a href="Identifikimi.php">Identifikim</a></div>

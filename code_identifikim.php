@@ -36,7 +36,7 @@ if($email!=''&& $pwd!='')
                     window.location.replace('Votimi/votimi.php?id=$row[ID]')
                 }
                 else if($user.Roli == 'kandidat'){
-                    window.location.replace('Llogaria.php')
+                    window.location.replace('FqProfilit.php')
                 }
                 else if($user.Roli == 'admin'){
                     window.location.replace('Modifiko.php')

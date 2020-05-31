@@ -143,7 +143,7 @@ include_once('header.php');
                             <h5><em>-Sharon Salzberg</em></h5>
                             <div>
                             <a href="Identifikimi.php"><button class="btn-voto">Voto tani</button></a>
-                            <a href="FqProfilit.php"><button class="btn-profili">Shko te  profili</button></a>
+                            <a href="Rezultati.php"><button class="btn-profili">Rezultati</button></a>
                             </div>
                         </div>
                     </div>

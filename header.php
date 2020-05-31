@@ -54,14 +54,14 @@ include_once('links.php');
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Faqe kryesore</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="Rezultati.php">Rezultati</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="FqPartive.php">Partite</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="I.Perdorim/stavro.html">Rreth nesh</a>
+                    <a class="nav-link" href="rrethnesh.php">Rreth nesh</a>
                 </li>
                 <li class="nav-item" id='identifikohu'>
                     <a class="nav-link" href="Identifikimi.php">Identifikohu</a>

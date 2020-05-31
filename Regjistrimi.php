@@ -251,10 +251,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
                             </div>
                             <span class="error"> <?php echo  $password1err; ?></span>
                         </div>
-                        <div class="checkbox pb-1">
+                        <!-- <div class="checkbox pb-1">
                             <input type="checkbox" name="cb" id="cb" value="">
                             <span>I agree to the terms of service</span>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                         <input type="submit" name="regjistrohu" class="btn-register pt-2" value="Regjistrohu"></div>
                         </form >

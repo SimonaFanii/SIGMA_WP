@@ -4,6 +4,7 @@ kodi i regjistrimit te kandidateve
 <?php 
 include_once('code_qyteti.php');
 ?>
+
 <?php
 include_once('lidhjameDB.php');
 $queryQytet="select EmerQytet,IdQytet from qytete";
@@ -138,12 +139,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if($result) {
             echo    "<script>
             alert  ('Ju jeni rregjistruar si kandidat');
+            
                 </script>";
+                
+
+                // header("Location: Identifikimi.php");
         } else {
             echo "Something has gone wrong! ".mysqli_error($conn);
             //if it didn't, echo the error message
         }
-        // header("Location: Identifikimi.php");
+        
        
     }
 }

@@ -131,6 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo    "<script>
     alert  ('Ju jeni rregjistruar si votues tani do te votoni');
         </script>";
+       
     }
 }
 

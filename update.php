@@ -1,4 +1,6 @@
-
+<?php
+include_once('header.php');
+?>
 <?php
 require_once ("lidhjameDB.php");
 if(isset($_POST['Update']))
