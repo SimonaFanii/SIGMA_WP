@@ -2,14 +2,11 @@
 require_once ("lidhjameDB.php");
 /*$query = "SELECT * FROM tbluser WHERE ID = '".$ID."' and Roli='Kandidate'  and ID='".$ID."' " ;
 $result=mysqli_query($conn,$query);
-
   while ($row=mysqli_fetch_assoc($result)) {
-
     $ID= $row["ID"] ;
     $Emaili=$row["Email"];
     $platforma=$row["platforma"];
     $Passwordi=$row["Password"];
-
 }*/
 ?>
 <!DOCTYPE html>
@@ -27,13 +24,13 @@ $result=mysqli_query($conn,$query);
   </head>
 
 <!--  -->
-<body class="bg-dark">    <div class="container ">
+<body class="bg-dark">
+     <div class="container ">
       <div class="row">
        <div class="col-lg-6 m-auto">
          <div class="card mt-5">
            <div class="card-title">
-             <h3 class="bg-success text-center py-3">Shto Kandidate</h3>
-          </div>
+             <h3 class="bg-success text-center py-3">Shto Admin</h3>
           <div class="card-body ">
 
 
@@ -41,16 +38,16 @@ $result=mysqli_query($conn,$query);
     <input type="text" name="Kid" class="form-control mb-2" placeholder="KarteID" >
       <input type="text" name="first" class="form-control mb-2" placeholder="firstname" class="input-text"  >
       <input type="text" name="last" class="form-control mb-2" placeholder="lastname" >
-      <input type="text" name="mosha" class="form-control mb-2" placeholder="Mosha" >
-      <input type="text" name="email" class="form-control mb-2" placeholder="E-mail" >
-      <input type="text" name="partia"  class="form-control mb-2" placeholder="Partia" >
-      <input type="text" name="qyteti"  class="form-control mb-2" placeholder="Qyteti" >
-      <input type="text" name="Nuik"  class="form-control mb-2" placeholder="NUIK" >
 
-    <!--  <textarea rows="4" cols="50" name="platforma"  class="form-control mb-2" placeholder="Platforma"value="<?php echo $platforma?>"> <?php echo $platforma?>"
-</textarea>-->
+      <input type="text" name="email" class="form-control mb-2" placeholder="E-mail" >
+      <!--
+      <input type="text" name="mosha" class="form-control mb-2" placeholder="Mosha" >
+
+      <input type="text" name="qyteti"  class="form-control mb-2" placeholder="Qyteti" >
+<input type="text" name="partia"  class="form-control mb-2" placeholder="Partia" >
+      <input type="text" name="Nuik"  class="form-control mb-2" placeholder="NUIK" >
+-->
       <input type="password" name="pwd" placeholder="Password" class="form-control mb-2"  >
-    <!--  <input type="text" name="roli"  class="form-control mb-2" placeholder="Roli"  >-->
    <button class="btn btn-primary" id="btn1"  name="Shto">Shto</button>
 
     </form>

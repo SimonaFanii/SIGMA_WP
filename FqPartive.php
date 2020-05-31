@@ -381,7 +381,7 @@ nav {
            }
            ?>
         </strong>  </p>
-            <a href="FqProfilit.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi A</a>
+            <a href="FaqeProfili.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi A</a>
         </div>
       </div>
       <div class="col-sm-4">
@@ -394,7 +394,7 @@ nav {
          }
          ?>
       </strong>  </p>
-          <a href="FqProfilit.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi B</a>
+          <a href="FaqeProfili.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi B</a>
         </div>
       </div>
       <div class="col-sm-4">
@@ -407,7 +407,7 @@ nav {
           }
           ?>
           </strong>  </p>
-          <a href="FqProfilit.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi C</a>
+          <a href="FaqeProfili.php?GetID=<?php echo $data ?>" class="btn btn-primary stretched-link">Perfaqsuesi C</a>
         </div>
       </div>
 
@@ -512,7 +512,7 @@ nav {
 
         <td> <a href="FqProfilit.php?id=$parameter"> <?php echo $ID  ?></a></td>-->
 
-        <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+        <td> <a href="FaqeProfili.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
 
    <td>  <?php echo $Emri  ?></td>
    <td>  <?php echo $Mbiemri  ?></td>
@@ -563,7 +563,7 @@ nav {
 
      ?>
   <tr>
-     <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+     <td> <a href="FaqeProfili.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
      <td>  <?php echo $Emri  ?></td>
      <td>  <?php echo $Mbiemri  ?></td>
      <td>  <?php echo $Karte  ?></td>

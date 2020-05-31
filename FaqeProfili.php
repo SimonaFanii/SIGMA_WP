@@ -205,7 +205,6 @@ $result=mysqli_query($conn,$query);
                     </div>
                   </div>
 <div class="col  px-md-5">
-  <button class="chatbtn" id="Edit" onclick="window.location.href = 'edit1.php?GetID=<?php echo $ID ?>';">  <i class="fa fa-edit"></i> Edit </button>
 
 </div>
                       <?php
@@ -220,21 +219,6 @@ $result=mysqli_query($conn,$query);
 <script src="main.js">
 
 </script>
-<!--Fshehja e butonit-->
-<script>
-<?php
-$Roli =$row["Roli"];
-?>
-$(document).ready(function(){
-  if ($roli="Kandidat") {
-$("#Edit").Show();
-}
-else if ($roli="votues"||$roli="admin") {
 
-  $("#Edit").hide();
-}
-});
-
-</script>
 </body>
 </html>

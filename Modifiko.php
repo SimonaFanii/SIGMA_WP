@@ -60,7 +60,7 @@ require_once ("lidhjameDB.php");
 
                 <div class="card">
                     <div class="card-body">
-              <button type="button" class=" btn btn-primary" onclick="window.location.href = 'Shto.php'" name="button">Shto kandidate</button>
+              <button type="button" class=" btn btn-primary" onclick="window.location.href = 'Shto.php'" name="button">Shto </button>
               </div>
                </div>
                 <div class="table-responsive">
