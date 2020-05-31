@@ -142,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
                 </script>";
                 
-
+                echo("<script>location.href = 'Identifikimi.php';</script>");
                 // header("Location: Identifikimi.php");
         } else {
             echo "Something has gone wrong! ".mysqli_error($conn);

@@ -129,8 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($iderr) && empty($emrierr) && empty($mbiemrierr)&& empty($moshaerr) && empty($emailerr) && empty($passworderr) && empty($password1err)) {
         $result =mysqli_query($conn, $sql);
         echo    "<script>
-    alert  ('Ju jeni rregjistruar si votues tani do te votoni');
+    alert  ('Ju jeni rregjistruar si votues');
         </script>";
+        // header("Location: Identifikimi.php");
+        echo("<script>location.href = 'Identifikimi.php';</script>");
        
     }
 }
