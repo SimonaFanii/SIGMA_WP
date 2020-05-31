@@ -4,9 +4,7 @@
 <?php
 require_once ("lidhjameDB.php");
 ?>
-<?php
-include_once('header.php');
-?>
+
   <title>Profili kandidatit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!---->
@@ -36,10 +34,11 @@ $result=mysqli_query($conn,$query);
     $Passwordi =$row["Password"];
     $Roli =$row["Roli"];
     $mosha =$row["Mosha"];
-    $Partia=$row["Partia"];
-    $Qyteti=$row["Qyteti"];
-    $platforma=$row["Platforma"];
+    $Partia=$row["Parti"];
+    $Qyteti=$row["qyteti"];
+    $platforma=$row["platforma"];
     $NUIK=$row["NuiK"];
+    $NUIV=$row["NuiV"];
 
   }
     ?>
@@ -152,7 +151,7 @@ $result=mysqli_query($conn,$query);
             <h1>Acount Setting</h1>
 <?php
 
-$query = "SELECT * FROM tbluser WHERE    Firstname = '$Emri' ||  Lastname = '$Mbiemri' && Partia='$Partia' && Roli='Kandidate'  ;" ;
+$query = "SELECT * FROM tbluser WHERE    Firstname = '$Emri' ||  Lastname = '$Mbiemri' && Parti='$Partia' && Roli='Kandidate'  ;" ;
 $result=mysqli_query($conn,$query);
 
  ?>
@@ -172,8 +171,8 @@ $result=mysqli_query($conn,$query);
                       $Karte = $row["KarteID"] ;
                       $Roli =$row["Roli"];
                       $mosha =$row["Mosha"];
-                      $qyteti =$row["Qyteti"];
-                      $partia =$row["Partia"];
+                      $qyteti =$row["qyteti"];
+                      $partia =$row["Parti"];
                       $NUIK=$row["NuiK"]
 
 ?>
@@ -186,6 +185,8 @@ $result=mysqli_query($conn,$query);
                          <p><?php echo "MBIEMRI: ".$Mbiemri  ?>&nbsp&nbsp&nbsp</p>
                          <p><?php echo "Mosha: ".$mosha  ?>&nbsp&nbsp&nbsp&nbsp</p>
                          <p><?php echo "ID KARTES: ".$Karte  ?>&nbsp</p>
+                           <p><?php echo "NUIK: ".$NUIK  ?>&nbsp</p>
+
                        </div>
           </div>
 <div class="col px-md-5"><div class="p-3 text-left">

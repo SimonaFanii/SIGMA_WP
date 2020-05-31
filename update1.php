@@ -2,16 +2,21 @@
 require_once ("lidhjameDB.php");
 if(isset($_POST['Update']))
 {
+   if ($_POST['pass'] != $_POST['pass2']) {
+   die('Your passwords did not match. ');
+}
+  // here we encrypt the password and add slashes if needed
+  $Passwordi =$_POST["pass"];
+
 
   $ID= $_GET["ID"] ;
 
   $Emaili=$_POST["email"];
   $Platforma=$_POST['platforma'];
-  $Passwordi =$_POST["password"];
 
 
   $query= "UPDATE tbluser SET
-    Email= '".$Emaili."' , Password='".$Passwordi."',Platforma='".$Platforma."'
+    Email= '".$Emaili."' , Password='".$Passwordi."',platforma='".$Platforma."'
     WHERE ID ='".$ID."' ";
 
  $result=mysqli_query($conn,$query);
