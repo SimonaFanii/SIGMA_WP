@@ -1,11 +1,8 @@
-<?php
-include_once('header.php');
-?>
+
 <?php
 require_once ("lidhjameDB.php");
 if(isset($_POST['Update']))
 {
-
   $ID= $_GET["ID"] ;
   $Emri= $_POST["first"] ;
   $Mbiemri= $_POST["last"] ;
@@ -14,11 +11,9 @@ if(isset($_POST['Update']))
   $Passwordi =$_POST["pwd"];
   $Roli =$_POST["roli"];
   $mosha =$_POST["mosha"];
-  $qyteti=$_POST['qyteti'];
-  $partia=$_POST['partia'];
-  $platforma=$_POST['platforma'];
-
-
+  //$qyteti=$_POST['qyteti'];
+  //$partia=$_POST['partia'];
+  //$platforma=$_POST['platforma'];
 
 $query= "UPDATE tbluser SET
  Firstname='".$Emri."' , Lastname='".$Mbiemri."' ,

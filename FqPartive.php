@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,21 +173,15 @@ nav {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php">Sigma</a>
+      <a class="navbar-brand" href="#myPage">Sigma</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-         <li><a href="index.php">Faqe kryesore</a></li>
-        <!-- <li><a href="#Partite">Partite</a></li>
-        <li><a href="#Perfaqsuesit">Perfaqsuesit</a></li> -->
-        <li class="nav-item">
-                    <a class="nav-link" href="rrethnesh.php">Rreth nesh</a>
-                </li>
-                <li class="nav-item" id='identifikohu'>
-                    <a class="nav-link" href="Identifikimi.php">Identifikohu</a>
-                </li>
-        <li><a href="Identifikimi.php">Identifikohu</a></li>
-        <li><a href="Regjistrimi.php">Regjistrohu</a></li>
+         <li><a href="#myPage">HOME</a></li>
+        <li><a href="#Partite">Partite</a></li>
+        <li><a href="#Perfaqsuesit">Perfaqsuesit</a></li>
+        <li><a href="#Histori">Histori</a></li>
+
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Me Shume
           <span class="caret"></span></a>
@@ -227,29 +220,29 @@ nav {
                     <div class="col-lg-4">
                       <?php  require 'lidhjameDB.php';
 
-                                  $query = "SELECT * FROM tbluser";
-                                  $run = mysqli_query($conn,$query);
-                                  echo "<select id='select'name='partia'  class='form-control'>";
-                                  echo "<option> Zgjidh Partine</option>";
-                                  while($row = mysqli_fetch_array($run))
-                                  {
-                                      echo "<option>$row[Parti]</option>";
-                                  }
-                                  echo "</select>";
-                                  ?>
+                                 $query = "SELECT EmerParti FROM patia";
+                                 $run = mysqli_query($conn,$query);
+                                 echo "<select id='select'name='partia'  class='form-control'>";
+                                 echo "<option> Zgjidh Partine</option>";
+                                 while($row = mysqli_fetch_array($run))
+                                 {
+                                     echo "<option>$row[EmerParti]</option>";
+                                 }
+                                 echo "</select>";
+                                 ?>
                     </div>            </div>
                       <div class="form-group">
                       <label class="col-lg-2 control-label">Qyteti</label>
                       <div class="col-lg-4">
                         <?php  require 'lidhjameDB.php';
 
-                                    $query = "SELECT * FROM tbluser";
+                                    $query = "SELECT EmerQytet FROM qytete";
                                     $run = mysqli_query($conn,$query);
                                     echo "<select id='select'name='qyteti'  class='form-control'>";
                                     echo "<option> Zgjidh Qyetetin</option>";
                                     while($row = mysqli_fetch_array($run))
                                     {
-                                        echo "<option>$row[qyteti]</option>";
+                                        echo "<option>$row[EmerQytet]</option>";
                                     }
                                     echo "</select>";
                                     ?>
@@ -366,7 +359,7 @@ nav {
      <br> Mos harroni te lini nje koment </p>
 
      <?php
-     $sql = "SELECT Firstname, ID FROM tbluser  ;" ;
+     $sql = "SELECT Firstname, ID FROM tbluser where Roli='Kandidat' ;" ;
         $result = mysqli_query($conn,$sql);
      $datas = array();
   if(mysqli_num_rows($result)>0)
@@ -497,7 +490,7 @@ nav {
       include("lidhjameDB.php");
 
       if(!isset($_POST['submit'])){
-      $sql = "SELECT * FROM tbluser  where Roli='Kandidate';" ;
+      $sql = "SELECT * FROM tbluser  where Roli='Kandidat';" ;
       $result = mysqli_query($conn,$sql);
       $resultCheck = mysqli_num_rows($result);
 
@@ -514,7 +507,13 @@ nav {
       $partia=$row["Parti"];
       $qyteti=$row["qyteti"];
       ?>
-   <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+
+<!--      <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+
+        <td> <a href="FqProfilit.php?id=$parameter"> <?php echo $ID  ?></a></td>-->
+
+        <td> <a href="FqProfilit.php?GetID=<?php echo $ID ?>"> <?php echo $ID  ?></a></td>
+
    <td>  <?php echo $Emri  ?></td>
    <td>  <?php echo $Mbiemri  ?></td>
    <td>  <?php echo $Karte  ?></td>
@@ -544,7 +543,7 @@ nav {
 
         if ($Emri!=""||$partia!="" ||$Mbiemri!=""||$qyteti!="") {
 
-            $sql = "SELECT * FROM tbluser WHERE  Roli='Kandidate' and
+            $sql = "SELECT * FROM tbluser WHERE  Roli='Kandidat' and
             Firstname = '$Emri' ||  Lastname = '$Mbiemri' || Parti='$partia'  || qyteti='$qyteti' ;" ;
               $result = mysqli_query($conn,$sql);
         $resultCheck = mysqli_num_rows($result);

@@ -1,8 +1,4 @@
 <?php
-include_once('header.php');
-?>
-
-<?php
 require_once ("lidhjameDB.php");
 
  $query ="SELECT * FROM tbluser";
@@ -12,7 +8,7 @@ require_once ("lidhjameDB.php");
 
  <html>
       <head>
-         <title>Databaza e pergjithshme</title>
+         <title>Faqja e Adminit</title>
 
 
          <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
@@ -25,12 +21,7 @@ require_once ("lidhjameDB.php");
            <!--jquery popper-->
            <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-
-
-
-
-
-      </head>
+</head>
 
       <body>
         <!-- DELETE ALERTII -->
@@ -59,10 +50,22 @@ require_once ("lidhjameDB.php");
         </div>
         <!--#############################################-->
        <br /><br />
-           <div class="container">
-                <h3 align="center">Databaza e sistemit</h3>
-                <br />
+
+       <!--<div class="container">-->
+
+                <h3 align="center">Faqja Administratorit</h3>
+
+              <br>
+
+
+                <div class="card">
+                    <div class="card-body">
+              <button type="button" class=" btn btn-primary" onclick="window.location.href = 'Shto.php'" name="button">Shto kandidate</button>
+              </div>
+               </div>
                 <div class="table-responsive">
+
+
                      <table id="employee_data" class="table table-striped table-bordered">
                         <thead>
                               <tr>
@@ -73,9 +76,6 @@ require_once ("lidhjameDB.php");
                                      <th>Karte</th>
                                      <th>Roli</th>
                                      <th>Mosha</th>
-                                 <!--    <th>Partia</th>
-                                     <th>Qyeteti</th>
-                                     <th>Platfroma</th>-->
                                      <th>Edit</th>
                                      <th>Delete</th>
                             </tr>
@@ -90,10 +90,7 @@ require_once ("lidhjameDB.php");
                                      $Karte = $row["KarteID"] ;
                                      $Roli =$row["Roli"];
                                      $mosha =$row["Mosha"];
-                                   //  $qyteti =$row["Qyteti"];
-                                     //$partia =$row["Partia"];
-                                   //  $platforma =$row["Platforma"];
-                                     ?>
+                              ?>
                        <tr>
                                        <td>  <?php echo $ID ?></td>
                                        <td>  <?php echo $Emri  ?></td>
@@ -102,10 +99,8 @@ require_once ("lidhjameDB.php");
                                        <td>  <?php echo $Karte  ?></td>
                                        <td>  <?php echo $Roli  ?></td>
                                        <td>  <?php echo $mosha  ?></td>
-                                       <!--<td>  <?php echo $qyteti  ?></td>
-                                       <td>  <?php echo $partia  ?></td>
-                                       <td>  <?php echo $platforma  ?></td>-->
-                                       <td> <a href="edit.php?GetID=<?php echo $ID ?>"> Edit</a></td>
+
+                                       <td><button class="btn btn-success deletebtn" id="chatBtn" onclick="window.location.href = 'edit.php?GetID=<?php echo $ID ?>';"> Edit</button></td>
                                        <td>  <button type="button" class="btn btn-danger deletebtn">DELETE </button> </td>
                                      </tr>
                                    <?php
@@ -146,5 +141,3 @@ $("#delete_id").val(data[0]);
 </script>
       </body>
  </html>
-
- <!-- 3 jan bootstrap-->

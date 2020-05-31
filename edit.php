@@ -1,12 +1,7 @@
 
 <?php
 require_once ("lidhjameDB.php");
-
-$ID = ''; 
-if( isset( $_GET['GetID'])) {
-    $ID = $_GET['GetID']; 
-} 
-// $ID=$_GET['GetID'];
+$ID=$_GET['GetID'];
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."'";
 $result=mysqli_query($conn,$query);
 
@@ -30,6 +25,8 @@ $result=mysqli_query($conn,$query);
     //$qyteti=$row["Qyteti"];
     //$platforma=$row["Platforma"];
   }
+  $profpic = "edit-validated.png";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,18 +41,24 @@ $result=mysqli_query($conn,$query);
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   </head>
+<style>
+  body {
 
-  <body class="bg-dark">
-    <div class="container">
+  background-image: url('<?php echo $profpic;?>');
+  }
+  </style>
+<!--  <body class="bg-dark">-->
+<body>
+    <div class="container ">
       <div class="row">
        <div class="col-lg-6 m-auto">
          <div class="card mt-5">
            <div class="card-title">
-             <h3 class="bg-success text-white-center py-3">Modifiko te dhenat</h3>
+             <h3 class="bg-success text-center py-3">Modifiko te dhenat</h3>
           </div>
-          <div class="card-body">
+          <div class="card-body ">
 
-    <form action="update.php?ID= <?php echo $ID?>" method="POST">
+    <form action="update.php?ID= <?php echo $ID?>" method="POST" >
 
 
            <input type="text" name="Kid" class="form-control mb-2" placeholder="KarteID" value="<?php echo $Karte?>">

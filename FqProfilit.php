@@ -1,8 +1,3 @@
-<?php
-include_once('header.php');
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +18,11 @@ require_once ("lidhjameDB.php");
 <link rel="stylesheet" href="profili.css">
 
 <?php
-//if(isset($_POST['first']) && isset($_POST['last'])) lidhja me afishi
-// $ID=$_GET['GetID'];
-$ID = ''; 
-if( isset( $_GET['GetID'])) {
-    $ID = $_GET['GetID']; 
-} 
+//if(isset($_POST['first']) && isset($_POST['last'])) lidhja me afishi/
+$ID=$_GET['GetID'];
 
+
+//$parameter=$_GET['id'];
 $query = "SELECT * FROM tbluser WHERE ID = '".$ID."'";
 $result=mysqli_query($conn,$query);
 
@@ -114,7 +107,7 @@ $result=mysqli_query($conn,$query);
         </div>
         <div class="profile-btn">
           <button class="chatbtn" id="LogOut" onclick="window.location.href = 'logout.php?GetID=<?php echo $ID ?>';">  <i class="fa fa-sign-out"></i> LogOut </button>
-          <button class="createbtn" id="VOTO" onclick="window.location.href = 'voto.php';">  <i class="fa fa-check"></i> Voto</button>
+    <!--    <button class="createbtn" id="VOTO" onclick="window.location.href = 'voto.php';">  <i class="fa fa-check"></i> Voto</button>-->
         </div>
         <div class="user-rating">
           <h3 class="rating">5/5</h3>
@@ -140,7 +133,9 @@ $result=mysqli_query($conn,$query);
         <ul>
           <li onclick="tabs(0)" class="user-post active">Platforma</li>
       <li onclick="tabs(1)" class="user-review">Historik</li>
+
           <li onclick="tabs(2)" class="user-setting"> Settings</li>
+
         </ul>
       </div>
       <div class="profile-body">
@@ -161,7 +156,7 @@ $result=mysqli_query($conn,$query);
             <h1>Acount Setting</h1>
 <?php
 
-$query = "SELECT * FROM tbluser WHERE    Firstname = '$Emri' ||  Lastname = '$Mbiemri' && Parti='$Partia' && Roli='Kandidate'  ;" ;
+$query = "SELECT * FROM tbluser WHERE    Firstname = '$Emri' ||  Lastname = '$Mbiemri' && Parti='$Partia' && Roli='Kandidat'  ;" ;
 $result=mysqli_query($conn,$query);
 
  ?>
@@ -223,6 +218,22 @@ $result=mysqli_query($conn,$query);
 </div>
 
 <script src="main.js">
+
+</script>
+<!--Fshehja e butonit-->
+<script>
+<?php
+$Roli =$row["Roli"];
+?>
+$(document).ready(function(){
+  if ($roli="Kandidat") {
+$("#Edit").Show();
+}
+else if ($roli="votues"||$roli="admin") {
+
+  $("#Edit").hide();
+}
+});
 
 </script>
 </body>
